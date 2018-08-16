@@ -1,0 +1,98 @@
+.tab-setting .nav-tabs {
+	width: 20%;
+    border: 0;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+	background-color: #c2c2c2;
+	font-weight: bold;
+}
+
+.tab-base .nav-tabs>li:not(.active)>a {
+	background-color: #e4e4e4;
+}
+.tab-base .tabs-border{
+	border-bottom: 2px solid;
+    padding-bottom: 1px;
+}
+.table-bordered {
+    border: 3px solid #ddd;
+}
+
+table thead .sorting_asc {
+    background: url(../images/sort_asc.png) no-repeat center right;
+}
+table thead .sorting_desc {
+    background: url(../images/sort_desc.png) no-repeat center right;
+}
+.sorting {
+    background: url(../images/sort_both.png) no-repeat center right;
+}
+.input-margin {
+    margin-top: 5px;
+}
+
+.dd-item .dd-bg {
+    background-color: #fafafa;
+    border: 1px solid #fafafa;
+}
+
+.title-item-menu {
+    position: relative;
+    height: auto;
+    min-height: 18px;
+    line-height: 28px;
+    overflow: hidden;
+    word-wrap: break-word;
+    color: #000;
+    font-weight: 600;
+}
+.title-item {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 28px;
+    display: block;
+    margin-right: 13em;
+}
+.panel .panel-heading-bg {
+    background: #fafafa;
+}
+.control-item {
+    font-size: 12px;
+    position: absolute;
+    right: 35px;
+    top: 9px;
+}
+.control-item a  {
+    position: absolute;
+    right: -36px;
+    top: -4px;
+    display: block;
+    width: 30px;
+    height: 40px;
+    font-size: 13px;
+}
+
+
+[id^=nesable-menu] {
+    border: 1px solid #e5e5e5;
+    border-top: none;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    width: 100%;
+}
+
+.dd .dd-item>button {
+    display: none;
+}
+
+.mt-10 {
+    margin: 20px;
+}
+
+
+
+@media (min-width: 768px){
+    #navbar {
+        background-color: transparent;
+        z-index: 1000;
+    }
+}

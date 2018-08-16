@@ -1,0 +1,9 @@
+<link rel="stylesheet" href="{{ url('Frontend') }}/css/linearicons.css">
+<link rel="stylesheet" href="{{ url('Frontend') }}/css/font-awesome.min.css">
+<link rel="stylesheet" href="{{ url('Frontend') }}/css/bootstrap.css">
+<link rel="stylesheet" href="{{ url('Frontend') }}/css/magnific-popup.css">
+<link rel="stylesheet" href="{{ url('Frontend') }}/css/nice-select.css">
+<link rel="stylesheet" href="{{ url('Frontend') }}/css/animate.min.css">
+<link rel="stylesheet" href="{{ url('Frontend') }}/css/owl.carousel.css">
+<link rel="stylesheet" href="{{ url('Frontend') }}/css/jquery-ui.css">
+<link rel="stylesheet" href="{{ url('Frontend') }}/css/main.css">
