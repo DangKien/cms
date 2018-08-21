@@ -42,11 +42,11 @@ Route::resource('admin/permissions-group', '\DangKien\RolePer\Controllers\Permis
 Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'middleware'=>'auth'], function() {
     Route::resource('users', 'UserController');
 
-    Route::get('users/profile', 'Backend\UserController@show')->name('users.profile');
-    Route::post('users/profile', 'Backend\UserController@updateSeft')->name('users.updateProfile');
+    Route::get('user/profile', 'UserController@show')->name('users.profile');
+    Route::post('user/profile', 'UserController@updateSeft')->name('users.updateProfile');
 
-    Route::get('users/change-password', 'Backend\UserController@change')->name('users.change');
-    Route::post('users/change-password', 'Backend\UserController@changePassword')->name('users.changePassword');
+    Route::get('user/change-password', 'UserController@change')->name('users.change');
+    Route::post('user/change-password', 'UserController@changePassword')->name('users.changePassword');
 
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
         Route::get('/', '\UniSharp\LaravelFilemanager\controllers\LfmController@show');
