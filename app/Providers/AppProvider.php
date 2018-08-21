@@ -26,7 +26,7 @@ class AppProvider extends ServiceProvider
             return new \App\Libs\Providers\Tag();
         });
 
-        $this->app->singleton('News', function ($app) {
+        $this->app->singleton('NewsBackend', function ($app) {
             return new \App\Libs\Providers\News();
         });
     }

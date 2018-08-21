@@ -36,6 +36,9 @@ return array (
     'location' => 'Location',
     'main_menu' => 'Main menu',
     'footer_menu' => 'Footer menu',
+    'url' => 'Url',
+    'url_name' => 'Url name',
+    'add_link' => 'Add link',
   ),
   'category' => 
   array (

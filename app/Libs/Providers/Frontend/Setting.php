@@ -17,7 +17,7 @@ class Setting {
 
 	public function getGgAnalytic() {
 
-		$data = $settingModel->where('key', "GOOGLE_ANALYTIC")
+		$data = $this->settingModel->where('key', "GOOGLE_ANALYTIC")
 							 ->first();
 
 		if (!empty($data->setting)) {
@@ -27,7 +27,7 @@ class Setting {
 	}
 
 	public function getContact() {
-		$data = $settingModel->where('key', "CONTACT")
+		$data = $this->settingModel->where('key', "CONTACT")
 							 ->first();
 
 		if (!empty($data->setting)) {

@@ -29,7 +29,6 @@ class MenuController extends Controller
     {
         $menus      = $this->menuModel->select('name', 'id')->get();
         $categories = $this->categoryModel->select('id', 'parent_id')->get();
-
         if (request()->has('menu_id') && request()->get('actions') == 'edit') {
             $locale = request()->has('locale') ? request()->get('locale') : App::getLocale();
             $menu   = $this->menuModel->translatedIn($locale)

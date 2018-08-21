@@ -65,7 +65,7 @@
 	                		                        @foreach (@$languages as $key => $languageTab)
 	                		                        	@if (isset($new))
 		                		                        	@php
-																$recordNew = app('News')->recordNew(@$new->id, @$languageTab->locale);
+																$recordNew = app('NewsBackend')->recordNew(@$new->id, @$languageTab->locale);
 		                		                        	@endphp
 		                		                        @endif
 	                		                        <div id="language-tab-{{ @$languageTab->id }}" 

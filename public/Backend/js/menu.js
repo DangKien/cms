@@ -4,8 +4,9 @@ $(document).ready(function () {
 getId = function () {
 	var idMax = 0;
 	$('.dd-item').each(function () {
-		if ($(this).attr('data-id') > idMax) {
-			idMax = $(this).attr('data-id');
+		idNew = parseInt($(this).attr('data-id'));
+		if (idNew > idMax) {
+			idMax = idNew;
 		}
 	}); 
 	return idMax;

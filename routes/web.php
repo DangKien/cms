@@ -39,7 +39,7 @@ Route::resource('admin/roles', '\DangKien\RolePer\Controllers\RoleController');
 Route::resource('admin/permissions', '\DangKien\RolePer\Controllers\PermissionController');
 Route::resource('admin/permissions-group', '\DangKien\RolePer\Controllers\PermissionGroupController');
 
-Route::group(['prefix' => 'admin', 'namespace' => 'Backend'], function() {
+Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'middleware'=>'auth'], function() {
     Route::resource('users', 'UserController');
 
     Route::get('users/profile', 'Backend\UserController@show')->name('users.profile');
