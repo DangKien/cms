@@ -20,7 +20,7 @@
 			                    <div class="clearfix"></div>
 			                </div>
 			                <div class="vk-item-caption-text">
-			                    <h2><a href="03_02_01_image_post.html">{{ @$priortizeNew->title  }}</a></h2>
+			                    <h2><a href="{{ route('newDetail', [@$priortizeNew->id, @$priortizeNew->slug]) }}">{{ @$priortizeNew->title  }}</a></h2>
 			                </div>
 			                <div class="vk-item-caption-time">
 			                    <span class="time"> {{ Carbon\Carbon::parse($priortizeNew->updated_at)->format('d F Y') }}</span>

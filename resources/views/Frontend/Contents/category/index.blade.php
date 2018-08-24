@@ -12,7 +12,7 @@
 	                    <div class="col-md-8">
 	                      	<div class="uni-category-grid-2-columns-left">
 
-	                      	    <!--                        sticker label-->
+	                      	    <!--sticker label-->
 	                      	    <div class="uni-sticker-label">
 	                      	        <div class="label-info">
 	                      	            <a href="">

@@ -28,7 +28,7 @@
                                 <li>
                                     <div class="vk-item-ep">
                                         <div>
-                                            <a href="#">{!! showCategoriesSidebar($cateItem) !!}
+                                            <a href="{{ route('category', [@$cateItem->id, @$cateItem->slug]) }}">{!! showCategoriesSidebar($cateItem) !!}
                                                 <i class="fa fa-angle-double-right"></i>&nbsp;&nbsp;{{ @$cateItem->name }}
                                             </a>
                                         </div>

@@ -91,8 +91,8 @@ class Home {
 	}
 
 	public function getPeriod () {
-		$data = $this->newModel->select(DB::raw('MONTH(created_at) as month, YEAR(created_at) as year'))
-								->groupBy(DB::raw('MONTH(created_at) + "." + YEAR(created_at)'))
+		$data = $this->newModel->select(DB::raw('MONTH(updated_at) as month, YEAR(updated_at) as year'))
+								->groupBy(DB::raw('MONTH(updated_at) + "." + YEAR(updated_at)'))
 								->get();
 		return $data;
 	}
