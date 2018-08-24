@@ -5,6 +5,7 @@ namespace App\Libs\Providers\Frontend;
 use App\Models\Menu as MenuModel;
 use App\Libs\Configs\StatusConfig;
 use App\Models\NewModel;
+use App\Models\Category as CategoryModel ; 
 use App, DB;
 
 class Home {
@@ -13,8 +14,9 @@ class Home {
 
 	public function __construct()
 	{
-		$this->menuModel = new MenuModel();
-		$this->newModel  = new NewModel();
+		$this->menuModel     = new MenuModel();
+		$this->newModel      = new NewModel();
+		$this->categoryModel = new CategoryModel();
 	}
 
 	public function getHotNew($limit) {
@@ -56,6 +58,42 @@ class Home {
 		// echo "<pre>";
 		// var_dump($data->toSql());
 		// return 123;
+		return $data;
+	}
+
+	public function getNew($limit) {
+		//lay danh sach tin binh thuong
+		$news = $this->newModel->select('news.id', 'title', 'view', 'vote', 'status', 'tag', 'hot', 'prioritize', 'description', 'url_image', 'created_at')
+		                    	->join('new_translation as t', 't.new_id', '=', 'news.id')
+		                   	 	->where( array(
+		                   	 		array('status', StatusConfig::CONST_AVAILABLE),
+									array('locale', App::getLocale()),
+									// array('prioritize', 0),
+								))
+		                    	->with('translations')
+		                    	->with('user_creates')
+		                    	->with('categories')
+		                    	->orderBy('updated_at', 'desc')
+		                    	->limit($limit)
+		                    	->get();
+		return $news;
+	}
+
+	public function getCategory() {
+		$data = $categories = $this->categoryModel->select('categories.id', 'name', 'parent_id', 'depth', 'status', 'slug')
+					            ->join('categories_translation as t', 't.category_id', '=', 'categories.id')
+					            ->where('locale', App::getLocale())
+					            ->where('categories.status', StatusConfig::CONST_AVAILABLE)
+					            ->orderBy('depth','asc')
+					            ->get();
+
+		return $data;
+	}
+
+	public function getPeriod () {
+		$data = $this->newModel->select(DB::raw('MONTH(created_at) as month, YEAR(created_at) as year'))
+								->groupBy(DB::raw('MONTH(created_at) + "." + YEAR(created_at)'))
+								->get();
 		return $data;
 	}
 

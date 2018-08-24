@@ -151,8 +151,8 @@ class MenuController extends Controller
         $menuModel = $this->menuModel->findOrFail($id);
         try {
             $menuModel->location = $request->menu_location;
-
-            $menuModel->translateOrNew($request->locale)->data_menu  = json_encode($request->data);           
+            $data                = $this->_menuUrl($request->data);
+            $menuModel->translateOrNew($request->locale)->data_menu  = json_encode($data);
             $menuModel->save();
             DB::commit();
             return response()->json(['status'=>true], 200);
@@ -160,6 +160,32 @@ class MenuController extends Controller
             DB::rollback();
             return response()->json(['status'=>false], 422);
         }
+    }
+
+    /**
+     * foreach add url for each item menu.
+     *
+     * @param  int  $data: menu array
+     * @return \Illuminate\Http\Response
+     */
+
+    public function _menuUrl ($data) {
+       $arrMenu = array();
+       foreach ($data as $menuItem) {
+           if ($menuItem['type'] == "Category") {
+               if ($recordCategory = $this->categoryModel::find($menuItem['menuId']) ) {
+                  $menuItem['link'] = route('category', [$recordCategory->id, $recordCategory->slug]);
+               }
+           }
+           if (isset($menuItem['children'])) {
+               $children = $this->_menuUrl($menuItem['children']);
+               if ($children) {
+                   $menuItem['children'] = $children;
+               }
+           }
+           $arrMenu[] = $menuItem;
+       }
+       return $arrMenu;
     }
 
     public function _validateInsert($request) {

@@ -20,6 +20,13 @@
 	        		                <div class="col-sm-12">
 	        		                    <form>
 	        		                        <div class="panel-body">
+	        		                        	<div class="col-sm-12">
+	 					                            <div class="form-group">
+	 					                                <label class="control-label">{!! trans('backend.setting.description') !!}</label>
+	 					                                <textarea rows="6" type="text" class="form-control" ng-model="data.contact.description"
+	 					                                required></textarea> 
+	 					                            </div>
+	 					                        </div>
 	 					                        <div class="col-sm-12">
 	 					                            <div class="form-group">
 	 					                                <label class="control-label">{!! trans('backend.setting.address') !!}</label>
@@ -87,6 +94,13 @@
 	 					                            <div class="form-group">
 	 					                                <label class="control-label">{!! trans('backend.setting.zalo') !!}</label>
 	 					                                <input type="text" class="form-control" ng-model="data.contact.zalo"
+	 					                                required>
+	 					                            </div>
+	 					                        </div>
+	 					                        <div class="col-sm-12">
+	 					                            <div class="form-group">
+	 					                                <label class="control-label">{!! trans('backend.setting.coppyright') !!}</label>
+	 					                                <input type="text" class="form-control" ng-model="data.contact.coppyright"
 	 					                                required>
 	 					                            </div>
 	 					                        </div>

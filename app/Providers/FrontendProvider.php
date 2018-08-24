@@ -29,6 +29,10 @@ class FrontendProvider extends ServiceProvider
             return new \App\Libs\Providers\Frontend\Setting();
         });
 
+        $this->app->singleton('TagFrontend', function ($app) {
+            return new \App\Libs\Providers\Frontend\Tag();
+        });
+
     }
 
     /**
@@ -38,6 +42,6 @@ class FrontendProvider extends ServiceProvider
      */
     public function register()
     {
-        return ['Menu', 'Home', 'News', 'Setting'];
+        return ['Menu', 'Home', 'News', 'Setting', 'TagFrontend'];
     }
 }

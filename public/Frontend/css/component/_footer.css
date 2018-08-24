@@ -1,0 +1,23 @@
+.vk-footer .vk-footer-1 .vk-footer-1-content p {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.71;
+  text-align: left;
+  color: #aeaeae; }
+
+.vk-footer .vk-footer-1 .vk-footer-1-content .vk-footer-1-address ul {
+  margin: 0px;
+  padding: 0px; }
+  .vk-footer .vk-footer-1 .vk-footer-1-content .vk-footer-1-address ul li {
+    list-style-type: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    line-height: 2.14;
+    text-align: left;
+    color: #aeaeae; }
+    .vk-footer .vk-footer-1 .vk-footer-1-content .vk-footer-1-address ul li .fa {
+      font-size: 16px;
+      line-height: 1.88;
+      color: #e12222; }
+    .vk-footer .vk-footer-1 .vk-footer-1-content .vk-footer-1-address ul li span a {
+      color: #ffffff; }

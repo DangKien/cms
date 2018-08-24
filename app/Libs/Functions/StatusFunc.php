@@ -1,43 +1,43 @@
 <?php
 
-	function statusAvailable($status) {
-		if ($status ==  App\Libs\Configs\StatusConfig::CONST_AVAILABLE) {
-			return true;
-		} 
-		return false;
-	}
+    function statusAvailable($status) {
+        if ($status ==  App\Libs\Configs\StatusConfig::CONST_AVAILABLE) {
+            return true;
+        } 
+        return false;
+    }
 
-	function statusDisable($status) {
-		if ($status ==  App\Libs\Configs\StatusConfig::CONST_DISABLE) {
-			return true;
-		} 
-		return false;
-	}
+    function statusDisable($status) {
+        if ($status ==  App\Libs\Configs\StatusConfig::CONST_DISABLE) {
+            return true;
+        } 
+        return false;
+    }
 
     // categories là list, parent_id là id cha, char: ki tu, selected là chon no, cate
-	function showCategories($categories, $parent_id = 0, $char = '  ', $selected = 0, $category_id = -1) {
-	    foreach ($categories as $key => $item) {
-	    	if ($item->parent_id == $parent_id && $item->parent_id != $category_id && $category_id != $item->id) {
-	    		if ($selected == $item->id) {
-					echo '<option selected = "selected" value="'.$item->id.'">';
-			        echo $char ." ". $item->name ." ". $char;
-			        echo '</option>';
+    function showCategories($categories, $parent_id = 0, $char = '  ', $selected = 0, $category_id = -1) {
+        foreach ($categories as $key => $item) {
+            if ($item->parent_id == $parent_id && $item->parent_id != $category_id && $category_id != $item->id) {
+                if ($selected == $item->id) {
+                    echo '<option selected = "selected" value="'.$item->id.'">';
+                    echo $char ." ". $item->name ." ". $char;
+                    echo '</option>';
 
-			        unset($categories[$key]);
-	    		} else {
-					echo '<option value="'.$item->id.'">';
-			        echo $char ." ". $item->name ." ". $char;
-			        echo '</option>';
+                    unset($categories[$key]);
+                } else {
+                    echo '<option value="'.$item->id.'">';
+                    echo $char ." ". $item->name ." ". $char;
+                    echo '</option>';
 
-			        unset($categories[$key]);
-	    		}
-	    		showCategories($categories, $item->id, $char.$char, $selected, $category_id);
-	    	}
-	    }
-	}
+                    unset($categories[$key]);
+                }
+                showCategories($categories, $item->id, $char.$char, $selected, $category_id);
+            }
+        }
+    }
 
-	// sort 
-	function _updateSortBy ($model, $sortByNew, $sortByOld) {
+    // sort 
+    function _updateSortBy ($model, $sortByNew, $sortByOld) {
         $sortMax   = $model::max('sort_by');
         if ($sortMax + 1 != $sortByNew && $sortByOld != $sortByNew) {
             if ($sortByOld == -1) {
@@ -130,7 +130,7 @@
                     else if(@$menu->type == "Url")
                         $control = trans("backend.menu.controls.url");
 
-                    echo '<li class="dd-item" data-id="'.@$menu->id. '" data-menu-id="'.@$detail->menuId.'"'.
+                    echo '<li class="dd-item" data-id="'.@$menu->id. '" data-menu-id="'.@$menu->menuId.'"'.
                         'data-link="'.@$menu->link.'" data-type="'.@$menu->type.'" data-title="'.@$menu->title.'">'.
                         '<div class="dd-handle dd-bg dd-anim title-item-menu" data-toggle="collapse" href="#nesable-menu-'.@$menu->id.'">'
                             .'<span class="title-item">'
@@ -173,22 +173,30 @@
         if (!empty($menus)) {
             foreach ($menus as $key => $menu) {
                 if (empty(@$menu->children)) {
-                    echo '<li class="menu-active">
-                            <a href="index.html">
+                    echo '<li class="home-economy">
+                            <a href="'.@$menu->link.'">
                                 '.@$menu->title.'
                             </a>';
                     echo '</li>';
                 } else {
-                    echo '<li class="menu-has-children">
-                            <a href="">'.@$menu->title.'</a>
+                    echo '<li class="has-sub">
+                            <a href="'.@$menu->link.'">'.@$menu->title.'</a>
                             <ul>';
                     showMenuTop(@$menu->children ? $menu->children : array());  
                     echo '</ul>
                     </li>';
                 }
-                
             }
         }
+    } 
+
+    function showCategoriesSidebar($category) {
+        $name = "";
+        $arrDepth = explode("/", $category->depth);
+            foreach ($arrDepth as $key => $value) {
+                $name .= '<t class="margin-10"> ';
+            }
+        return $name;
     } 
 
 

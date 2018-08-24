@@ -1,0 +1,103 @@
+#vk-home-sport .menu-mobile-nav {
+  top: 52px; }
+
+.vk-header-sport .container {
+  position: relative; }
+
+.vk-header-sport .vk-top-header {
+  background: #222222;
+  padding: 8px 0px; }
+  @media screen and (max-width: 767px) {
+    .vk-header-sport .vk-top-header .vk-top-header-1 {
+      display: none; } }
+  .vk-header-sport .vk-top-header .vk-top-header-1 ul {
+    padding: 0px;
+    margin: 0px; }
+    .vk-header-sport .vk-top-header .vk-top-header-1 ul li {
+      list-style-type: none;
+      display: inline-block;
+      padding-right: 12px;
+      padding-left: 12px; }
+      .vk-header-sport .vk-top-header .vk-top-header-1 ul li:first-child {
+        border-right: 2px solid #333333; }
+      .vk-header-sport .vk-top-header .vk-top-header-1 ul li a {
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.67;
+        text-align: left;
+        color: #aeaeae; }
+        .vk-header-sport .vk-top-header .vk-top-header-1 ul li a:hover {
+          text-decoration: none; }
+  .vk-header-sport .vk-top-header .vk-top-header-2 {
+    text-align: center; }
+    .vk-header-sport .vk-top-header .vk-top-header-2 ul {
+      padding: 0px;
+      margin: 0px; }
+      .vk-header-sport .vk-top-header .vk-top-header-2 ul li {
+        list-style-type: none;
+        display: inline-block;
+        font-family: 'Poppins', sans-serif;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.67;
+        text-align: center;
+        color: #aeaeae; }
+  .vk-header-sport .vk-top-header .vk-top-header-3 {
+    text-align: right; }
+    @media screen and (max-width: 767px) {
+      .vk-header-sport .vk-top-header .vk-top-header-3 {
+        display: none; } }
+    .vk-header-sport .vk-top-header .vk-top-header-3 ul {
+      padding: 0px;
+      margin: 0px; }
+      .vk-header-sport .vk-top-header .vk-top-header-3 ul li {
+        list-style-type: none;
+        display: inline-block;
+        margin-left: 10px; }
+        .vk-header-sport .vk-top-header .vk-top-header-3 ul li a {
+          font-family: 'Poppins', sans-serif;
+          font-size: 14px;
+          line-height: 1.43;
+          text-align: right;
+          color: #aeaeae;
+          -webkit-transition: all 0.4s;
+          -o-transition: all 0.4s;
+          transition: all 0.4s; }
+          .vk-header-sport .vk-top-header .vk-top-header-3 ul li a:hover {
+            text-decoration: none;
+            color: #e12222; }
+
+.vk-header-sport .vk-between-header .vk-between-header-logo {
+  padding: 41px 0; }
+  @media screen and (max-width: 991px) {
+    .vk-header-sport .vk-between-header .vk-between-header-logo {
+      padding: 30px 0; } }
+
+.vk-header-sport .vk-between-header .vk-between-header-banner {
+  padding: 20px 0px; }
+  @media screen and (max-width: 991px) {
+    .vk-header-sport .vk-between-header .vk-between-header-banner {
+      display: none; } }
+
+.vk-header-sport .vk-bottom-header {
+  border-bottom: 1px solid #eaeaea;
+  background: #fff; }
+  .vk-header-sport .vk-bottom-header .home-icon {
+    background: #e12222; }
+    .vk-header-sport .vk-bottom-header .home-icon i {
+      color: #fff; }
+  .vk-header-sport .vk-bottom-header .cssmenu > ul > li:hover > a, .vk-header-sport .vk-bottom-header .cssmenu > ul > li.active > a {
+    color: #e12222; }
+  .vk-header-sport .vk-bottom-header .cssmenu > ul > li > a {
+    color: #333; }
+  .vk-header-sport .vk-bottom-header .cssmenu > ul > li.has-sub > a::after {
+    border-color: #333; }
+
+.vk-header-sport .vk-bottom-header-search {
+  padding: 20px 0;
+  text-align: right; }
+  .vk-header-sport .vk-bottom-header-search i {
+    color: #333; }
+    .vk-header-sport .vk-bottom-header-search i:hover {
+      color: #e12222; }

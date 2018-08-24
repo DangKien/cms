@@ -45,6 +45,9 @@ ngApp.controller('settingCtrl',function($scope, $myNotify, $myBootbox, $myLoader
 						'instagram' : $scope.data.contact.instagram || '',
 						'zalo' : $scope.data.contact.zalo || '',
 						'google_map' : $scope.data.contact.google_map || '',
+						'description' : $scope.data.contact.description || '',
+						'coppyright'  : $scope.data.contact.coppyright || '',
+						
 					}
 				),
 				'key' : 'CONTACT'

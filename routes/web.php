@@ -23,9 +23,11 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Auth', 'middleware' => 'web']
 
 // Front end
 Route::group(['prefix' => '/'], function() {
-    Route::get('', function() {
-        return view("Frontend.Contents.index");
-    });
+    Route::get('', function() { return view("Frontend.Contents.index"); })->name('home');
+
+    Route::get('category/{id}-{slug}', 'Frontend\CategoryController@detail')->name('category');
+
+     Route::get('news/{id}-{slug}', 'Frontend\NewController@detail')->name('newDetail');
 });
 
 Route::group(['prefix' => 'admin/users'], function() {

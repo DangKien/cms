@@ -141,7 +141,7 @@ class CategoryController extends Controller
             foreach ($languages as $key => $language) {
                 $categoryModel->translateOrNew($language->locale)->name             = $request->name[$language->id];
                 $categoryModel->translateOrNew($language->locale)->description      = $request->description[$language->id];
-                $categoryModel->translateOrNew($language->locale)->slug             = $request->name[$language->id];
+                $categoryModel->translateOrNew($language->locale)->slug             = slugTitle($request->name[$language->id]);
                 $categoryModel->translateOrNew($language->locale)->meta_title       = $request->meta_title[$language->id];
                 $categoryModel->translateOrNew($language->locale)->meta_description = $request->meta_description[$language->id];
                 $categoryModel->translateOrNew($language->locale)->meta_data        = $request->meta_content[$language->id];
