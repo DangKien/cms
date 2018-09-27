@@ -48,6 +48,13 @@
                                     </i>{!! trans('backend.menu.new')  !!}</a>
                                 </li>
                             </ul>
+
+                            <ul class="collapse">
+                                <li class="{{ request()->is('admin/magazines') || request()->is('admin/magazines/*') ? 'active-link': '' }}">
+                                    <a href="{{ route('magazines.index') }}"><i class="ti-angle-double-right">
+                                    </i>{!! trans('backend.menu.magazine')  !!}</a>
+                                </li>
+                            </ul>
                         </li>
 
                         <li class="

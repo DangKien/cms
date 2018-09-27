@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Hong_Kong',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'vi',
+    'locale' => 'cn',
 
     /*
     |--------------------------------------------------------------------------
@@ -91,7 +91,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'cn',
 
     /*
     |--------------------------------------------------------------------------
@@ -152,6 +152,7 @@ return [
         Yajra\Datatables\DatatablesServiceProvider::class,
         UniSharp\LaravelFilemanager\LaravelFilemanagerServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
+        Chumper\Zipper\ZipperServiceProvider::class,
         /*
          * Package Service Providers...
          */
@@ -219,6 +220,7 @@ return [
         'RolePer'   => DangKien\RolePer\RolePerFacade::class,
         'Datatables' => Yajra\Datatables\Facades\Datatables::class,
         'Image' => Intervention\Image\Facades\Image::class,
+        'Zipper' => Chumper\Zipper\Zipper::class,
 
     ],
 

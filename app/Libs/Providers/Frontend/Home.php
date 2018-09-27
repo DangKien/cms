@@ -5,7 +5,8 @@ namespace App\Libs\Providers\Frontend;
 use App\Models\Menu as MenuModel;
 use App\Libs\Configs\StatusConfig;
 use App\Models\NewModel;
-use App\Models\Category as CategoryModel ; 
+use App\Models\Category as CategoryModel ;
+use App\Models\Flipbook;
 use App, DB;
 
 class Home {
@@ -17,6 +18,7 @@ class Home {
 		$this->menuModel     = new MenuModel();
 		$this->newModel      = new NewModel();
 		$this->categoryModel = new CategoryModel();
+		$this->magazineModel = new Flipbook();
 	}
 
 	public function getHotNew($limit) {
@@ -96,6 +98,18 @@ class Home {
 								->get();
 		return $data;
 	}
+
+	public function getMagazine ($limit = null) {
+		$data = $this->magazineModel::orderBy('sort_by' , 'asc')->limit($limit)->get();
+		return $data;
+	}
+
+	public function getListMagazine() {
+		
+		$data = $this->magazineModel::orderBy('sort_by' , 'asc')->paginate(8);
+		return $data;
+	}
+	
 
 }
 

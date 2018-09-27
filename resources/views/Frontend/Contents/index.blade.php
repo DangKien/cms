@@ -22,9 +22,9 @@
 	                        	            <div class="uni-sticker-label">
 	                        	                <div class="label-info">
 	                        	                    <a href="#">
-	                        	                        <img src="image/homepage1/icon/fire.png" alt="" class="img-responsive img-gen">
-	                        	                        <img src="image/fire-red.png" alt="" class="img-responsive img-hover">
-	                        	                        <span class="label-title">Hot News</span>
+	                        	                        <img src="{{ url('Frontend') }}/image/homepage1/icon/fire.png" alt="" class="img-responsive img-gen">
+	                        	                        <img src="{{ url('Frontend') }}/image/fire-red.png" alt="" class="img-responsive img-hover">
+	                        	                        <span class="label-title">{{ trans('frontend.hotview') }}</span>
 	                        	                    </a>
 	                        	                </div>
 	                        	                <!--Tab show mobiles-->
@@ -56,7 +56,7 @@
                         	                                                    <div class="vk-section1-eco-time">
                         	                                                        <ul>
                         	                                                            <li><i class="fa fa-calendar" aria-hidden="true"></i>{{ \Carbon\Carbon::parse( @$hotNew->created_at)->format('d F Y') }}</li>
-                        	                                                            <li><i class="fa fa-eye-slash" aria-hidden="true"></i> {{ @$hotNew['view'] }} views</li>
+                        	                                                            <li><i class="fa fa-eye-slash" aria-hidden="true"></i> {{ @$hotNew['view'] }} {{ trans('frontend.view') }}</li>
                         	                                                        </ul>
                         	                                                    </div>
                         	                                                    <div class="vk-section1-eco-text">
@@ -88,12 +88,12 @@
 	                                                <a href="#">
 	                                                    <img src="{{ url('Frontend') }}/image/homepage1/icon/data.png" alt="" class="img-responsive img-gen">
 	                                                    <img src="{{ url('Frontend') }}/image/eco-red.png" alt="" class="img-responsive img-hover">
-	                                                    <span class="label-title">New</span>
+	                                                    <span class="label-title">{{ trans('fontend.new') }}</span>
 	                                                </a>
 	                                            </div>
 	                                            <div class="btn btn-select btn-select-light">
 	                                                <input type="hidden" class="btn-select-input" name="economy-input" value="" />
-	                                                <span class="btn-select-value">Newest</span>
+	                                                <span class="btn-select-value"></span>
 	                                                <span class='btn-select-arrow'><i class="fa fa-angle-down" aria-hidden="true"></i></span>
 	                                                <div class="clearfix"></div>
 	                                            </div>
@@ -117,7 +117,7 @@
                                                                         <div class="vk-sec-2-left-time">
                                                                             <ul>
                                                                                 <li><i class="fa fa-calendar" aria-hidden="true"></i> {{ Carbon\Carbon::parse( @$newItem['created_at'])->format('d F Y') }}</li>
-                                                                                <li><i class="fa fa-eye-slash" aria-hidden="true"></i> {{ @$newItem['view'] }} views</li>
+                                                                                <li><i class="fa fa-eye-slash" aria-hidden="true"></i> {{ @$newItem['view'] }} {{ trans('frontend.view') }}</li>
                                                                             </ul>
                                                                         </div>
                                                                         <div class="vk-sec-2-left-text">
@@ -182,5 +182,9 @@
 
 @section ('myCss')
 	
+@endsection
+
+@section ('metaData')
+    @includeif ('Frontend.Layouts._meta', @$arrMeta ?? array() )
 @endsection
 

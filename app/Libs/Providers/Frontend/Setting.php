@@ -36,6 +36,16 @@ class Setting {
 		return $data;
 	}
 
+	public function getMeta() {
+		$data = $this->settingModel->where('key', "META")
+							 ->first();
+
+		if (!empty($data->setting)) {
+			$data->setting = json_decode($data->setting);
+		}
+		return $data;
+	}
+
 }
 
 

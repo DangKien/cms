@@ -1,5 +1,6 @@
 @php 
 	$menus = app('Menu')->getMenu();
+    $magazines = app('Home')->getMagazine();
 @endphp
 
 <!-- Mobile nav -->
@@ -13,11 +14,10 @@
         <ul class="nav navbar-nav animated">
             <li class="home-icon">
                 <a href="{{ route('home') }}">
-                Home
+                {{ trans('frontend.home') }}
                 </a>
             </li>
-                {{ showMenuTop(@$menus->data_menu) }}          
-
+                {{ showMenuTop(@$menus->data_menu) }}
         </ul>
         <div class="uni-nav-mobile-bottom">
             <div class="form-search-wrapper-mobile">
@@ -39,12 +39,12 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-4 col-sm-4">
-                                <div class="vk-top-header-1">
+                                <!-- <div class="vk-top-header-1">
                                     <ul>
                                         <li><a href="#">Contact</a></li>
                                         <li><a href="#">Purchase Now</a></li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-md-4 col-sm-4">
                                 <div class="vk-top-header-2">
@@ -55,7 +55,7 @@
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-md-4 col-sm-4">
+                            <!-- <div class="col-md-4 col-sm-4">
                                 <div class="vk-top-header-3">
                                     <ul>
                                         <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -66,7 +66,7 @@
                                         <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -97,6 +97,19 @@
                                         <li class="has-sub home-icon"><a href="{{ route('home') }}"><i class="fa fa-home" aria-hidden="true"></i></a>
                                         </li>
                                         {{ showMenuTop(@$menus->data_menu) }}
+
+                                        <li class="has-sub">
+                                            <a href="{{ route('magazine') }}">
+                                                {{ trans('frontend.magazine') }}
+                                            </a>
+                                            <ul>
+                                                @foreach ($magazines as $magazine)
+                                                    <li class="home-economy">
+                                                        <a href="{{ route('magazine.detail', [$magazine->id, $magazine->slug ]) }}">{{ $magazine->title }}</a>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
@@ -110,10 +123,14 @@
                         </div>
                         <!--Form search-->
                         <div class="form-search-wrapper">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search">
-                                <span class="input-group-addon success"><i class="fa fa-search"></i></span>
-                            </div>
+                            <form action="{{ route('search') }}" method="GET" accept-charset="utf-8">
+                                <div class="input-group">
+                                    <input type="text" name="search" class="form-control" placeholder="Search">
+                                    <span class="input-group-addon success">
+                                        <button type="submit"><i class="fa fa-search"></i></button>
+                                    </span>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

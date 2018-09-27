@@ -123,7 +123,12 @@ return [
         'image/gif',
         'image/svg+xml',
         'application/pdf',
+        'application/docx',
         'text/plain',
+        'image/vnd.microsoft.icon',
+        'image/x-icon',
+        'application/zip', 'application/octet-stream', 'application/x-zip-compressed', 'multipart/x-zip',
+        'application/vnd.ms-excel','application/vnd.openxmlformats-officedocument.wordprocessingml.document','application/docx'
     ],
 
     /*

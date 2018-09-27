@@ -75,7 +75,7 @@
                 <div class="vk-home-default-right-tags">
                     <ul>
                     	@foreach ($listTags as $tag)
-							<li><a href="#">{{ @$tag->name }}</a></li>
+							<li><a href="{{ route('search', ['search' => $tag->name]) }}">{{ @$tag->name }}</a></li>
                     	@endforeach
                         
                     </ul>

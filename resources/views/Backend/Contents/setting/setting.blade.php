@@ -13,6 +13,9 @@
 			                <li>
 			                    <a data-toggle="tab" href="#tab-2">{!! trans('backend.setting.google_analytic') !!}</a>
 			                </li>
+			                <li>
+			                    <a data-toggle="tab" href="#tab-3">{!! trans('backend.setting.seo_default') !!}</a>
+			                </li>
 			            </ul>
 			            <div class="tab-content">
 			                <div id="tab-1" class="tab-pane fade active in">
@@ -132,6 +135,48 @@
 				                        </div>
 				                        <div class="col-sm-12">
 				                        	 <button type="button" ng-click="actions.saveGgAnalytic()" class="btn btn-primary btn-block">{!! trans('backend.actions.submit') !!}</button>
+				                        </div>
+	        		                </div>
+	        		            </div>
+	        		        </div>
+
+	        		        <div id="tab-3" class="tab-pane fade">
+			                    <div class="row">
+	        		                <div class="col-sm-12">
+	        		                	<div class="col-sm-12">
+				                            <div class="form-group">
+				                                <label class="control-label">{!! trans('backend.setting.title') !!}</label>
+				                                <textarea rows="6" type="text" class="form-control" ng-model="data.meta.title" placeholder="{!! trans('backend.setting.meta.title') !!}" 
+				                                required></textarea> 
+				                            </div>
+				                        </div>
+
+            		                	<div class="col-sm-12">
+    			                            <div class="form-group">
+    			                                <label class="control-label">{!! trans('backend.setting.meta_title') !!}</label>
+    			                                <textarea rows="6" type="text" class="form-control" ng-model="data.meta.meta_title" placeholder="{!! trans('backend.setting.meta.meta_title') !!}" 
+    			                                required></textarea> 
+    			                            </div>
+    			                        </div>
+
+    			                        <div class="col-sm-12">
+    			                            <div class="form-group">
+    			                                <label class="control-label">{!! trans('backend.setting.meta_description') !!}</label>
+    			                                <textarea rows="6" type="text" class="form-control" ng-model="data.meta.meta_description" placeholder="{!! trans('backend.setting.meta.meta_description') !!}" 
+    			                                required></textarea> 
+    			                            </div>
+    			                        </div>
+
+    			                        <div class="col-sm-12">
+    			                            <div class="form-group">
+    			                                <label class="control-label">{!! trans('backend.setting.meta_keyword') !!}</label>
+    			                                <textarea rows="6" type="text" class="form-control" ng-model="data.meta.meta_keyword" placeholder="{!! trans('backend.setting.meta.meta_keyword') !!}" 
+    			                                required></textarea> 
+    			                            </div>
+    			                        </div>
+
+				                        <div class="col-sm-12">
+				                        	 <button type="button" ng-click="actions.saveMeta()" class="btn btn-primary btn-block">{!! trans('backend.actions.submit') !!}</button>
 				                        </div>
 	        		                </div>
 	        		            </div>

@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\MyModel;
+use App\Libs\Configs\StatusConfig;
 
-class NewModel extends Model
+class NewModel extends MyModel
 {
     use \Dimsav\Translatable\Translatable;
     
@@ -24,4 +26,41 @@ class NewModel extends Model
     	return $this->belongsTo('App\User', 'user_create', 'id');
     }
 
+    public function filterTitle ($params) {
+        if (!empty($params) ) {
+            $this->setFunctionCond('whereTranslationLike', ['title', '%'.$params.'%']);
+        }
+        return $this;
+    }
+
+    public function filterTag ($params) {
+        if (!empty($params) ) {
+            $this->setFunctionCond('orWhereTranslationLike', ['tag', '%'.$params.'%']);
+        }
+        return $this;
+    }
+
+    public function filterContent ($params) {
+        if (!empty($params) ) {
+            $this->setFunctionCond('orWhereTranslationLike', ['content', '%'.$params.'%']);
+        }
+        return $this;
+    }
+
+    public function filterOnlyTag($params) {
+        if (!empty($params) ) {
+            $this->setFunctionCond('whereTranslationLike', ['tag', '%'.$params.'%']);
+        }
+        return $this;
+    }
+
+    public function filterFreeText ($params) {
+        if (!empty($params) ) {
+            // $this->setFunctionCond('where', ['status', StatusConfig::CONST_AVAILABLE ]);
+            $this->filterTitle($params);
+            $this->filterTag($params);
+            $this->filterContent($params);
+        }
+        return $this;
+    }
 }

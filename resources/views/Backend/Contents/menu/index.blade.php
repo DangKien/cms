@@ -58,7 +58,7 @@
 				                        </div>
 				                    </div>
 			            		</div>
-			                    <div class="row">
+			                    <!-- <div class="row">
     			                    <div class="form-group col-md-6">
     			                        <label class="col-sm-4" for="select-menu">{!! trans("backend.menu.language") !!}: </label>
     				                    <div class="col-sm-8">
@@ -73,7 +73,7 @@
     	                                    </select>
     			                        </div>
     			                    </div>
-			                    </div>
+			                    </div> -->
 		            		</form>
 			            </div>
 			        </div>

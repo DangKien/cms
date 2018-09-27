@@ -27,7 +27,13 @@ Route::group(['prefix' => '/'], function() {
 
     Route::get('category/{id}-{slug}', 'Frontend\CategoryController@detail')->name('category');
 
-     Route::get('news/{id}-{slug}', 'Frontend\NewController@detail')->name('newDetail');
+    Route::get('news/{id}-{slug}', 'Frontend\NewController@detail')->name('newDetail');
+
+    Route::get('magazines', 'Frontend\MagazineController@index')->name('magazine');
+
+    Route::get('magazine-detail/{id}-{slug}', 'Frontend\MagazineController@detail')->name('magazine.detail');
+
+    Route::get('sreach', 'Frontend\NewController@search')->name('search');
 });
 
 Route::group(['prefix' => 'admin/users'], function() {
@@ -69,6 +75,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'middleware'=>'auth
 
     Route::resource('widget', 'WidgetController', ['except'=>['destroy']]);
 
+    Route::resource('magazines', 'FlipbookController', ['except'=>['destroy']]);
+
     Route::get('setting', 'SettingController@index')->name('setting.index');
 
 
@@ -92,6 +100,10 @@ Route::group(['prefix' => 'rest/admin', 'namespace'=> 'Backend'], function() {
     Route::delete('slides/{id}', 'SlideController@destroy');
     Route::post('slides/delete-multi', 'SlideController@destroyMulti');
 
+    Route::get('magazines', 'FlipbookController@list');
+    Route::delete('magazines/{id}', 'FlipbookController@destroy');
+    Route::post('magazines/delete-multi', 'FlipbookController@destroyMulti');
+
     Route::get('news', 'NewController@list');
     Route::delete('news/{id}', 'NewController@destroy');
     Route::post('news/delete-multi', 'NewController@destroyMulti');
@@ -103,5 +115,9 @@ Route::group(['prefix' => 'rest/admin', 'namespace'=> 'Backend'], function() {
 
     Route::get('setting', 'SettingController@getSetting');
     Route::post('insertSetting', 'SettingController@insertSetting');
+
+    Route::get('widget-item', 'WidgetController@list');
+
+    Route::get('widget-modal/{view}', 'WidgetController@modal');
 
 });

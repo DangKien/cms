@@ -26,6 +26,9 @@ ngApp.controller('settingCtrl',function($scope, $myNotify, $myBootbox, $myLoader
 					if (value.key == 'GOOGLE_ANALYTIC') {
 						$scope.data.googleApi = value.setting
 					}
+					if (value.key == 'META') {
+						$scope.data.meta = value.setting
+					}
 				});
 			}, function (error) {
 			})
@@ -51,6 +54,27 @@ ngApp.controller('settingCtrl',function($scope, $myNotify, $myBootbox, $myLoader
 					}
 				),
 				'key' : 'CONTACT'
+			}
+			$settingService.action.insertSetting(params).then(function (resp){
+				if (resp) {
+					$myNotify.success('Success')
+				}
+			}, function (error) {
+				$myNotify.error('Error')
+			});
+		},
+
+		saveMeta: function () {
+			let params = {
+				'setting': JSON.stringify(
+					{
+						'title': $scope.data.meta.title || '',
+						'meta_title'  : $scope.data.meta.meta_title || '',
+						'meta_desciption' : $scope.data.meta.meta_description || '',
+						'meta_keyword' : $scope.data.meta.meta_keyword || '',
+					}
+				),
+				'key' : 'META'
 			}
 			$settingService.action.insertSetting(params).then(function (resp){
 				if (resp) {
