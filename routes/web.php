@@ -57,8 +57,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Backend', 'middleware'=>'auth
     Route::post('user/change-password', 'UserController@changePassword')->name('users.changePassword');
 
     Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
-        Route::get('/', '\UniSharp\LaravelFilemanager\controllers\LfmController@show');
-        Route::post('/upload', '\UniSharp\LaravelFilemanager\controllers\UploadController@upload');
+        Route::get('/', '\UniSharp\LaravelFilemanager\Controllers\LfmController@show');
+        Route::post('/upload', '\UniSharp\LaravelFilemanager\Controllers\UploadController@upload');
     });
 
     Route::resource('languages', 'LanguagesController', ['except'=>['destroy']]);

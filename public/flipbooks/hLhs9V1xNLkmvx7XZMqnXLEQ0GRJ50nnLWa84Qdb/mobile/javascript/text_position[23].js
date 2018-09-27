@@ -1,0 +1,1 @@
+﻿positionForPages[23]={page:23,positions:[{word:"23",left:0.490344,top:0.945381,width:0.016799,height:0.016265},{word:"百靈佳殷格翰",left:0.449093,top:0.035100,width:0.100793,height:0.012378}]};

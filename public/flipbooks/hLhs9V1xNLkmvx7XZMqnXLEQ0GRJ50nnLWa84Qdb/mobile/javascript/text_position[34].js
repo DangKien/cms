@@ -1,0 +1,1 @@
+﻿positionForPages[34]={page:34,positions:[{word:"34",left:0.491762,top:0.943626,width:0.016799,height:0.016265},{word:"百靈佳殷格翰",left:0.449603,top:0.035100,width:0.100793,height:0.012378},{word:"!",left:0.645667,top:0.138646,width:0.041997,height:0.061891},{word:"由我們的人推動",left:0.125000,top:0.093051,width:0.646759,height:0.068080}]};
