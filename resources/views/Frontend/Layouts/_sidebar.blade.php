@@ -1,7 +1,7 @@
 @php
 	$listTags = app('TagFrontend')->listTag();
     $listCategory = app ('Home')->getCategory();
-
+    $banner = app('Setting')->getBanner();
     $listPeriods  = app('Home')->getPeriod();
 @endphp
 <aside class="col-md-4">
@@ -9,8 +9,8 @@
         <aside class="widget">
             <div class="widget-content">
                 <div class="vk-home-default-right-ad">
-                    <a href="#">
-                        <img src="{{ url('Frontend') }}/image/ad-sidebar.jpg" alt="ad-sidebar" class="img-responsive">
+                    <a href="{{ @$banner->setting->right_banner_url  }}">
+                        <img src="{{ url('') }}/{{ @$banner->setting->right_banner  }}" alt="ad-sidebar" class="img-responsive">
                     </a>
                 </div>
             </div>

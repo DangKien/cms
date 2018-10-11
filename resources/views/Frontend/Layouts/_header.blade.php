@@ -1,6 +1,7 @@
 @php 
 	$menus = app('Menu')->getMenu();
     $magazines = app('Home')->getMagazine();
+    $banner = app('Setting')->getBanner();
 @endphp
 
 <!-- Mobile nav -->
@@ -81,7 +82,7 @@
                             </div>
                             <div class="col-md-8 col-md-offset-1">
                                 <div class="vk-between-header-banner">
-                                    <a href="#"><img src="{{ url('Frontend') }}/image/ad-header.jpg" alt="" class="img-responsive"></a>
+                                    <a href="{{ @$banner->setting->top_banner_url  }}"><img src="{{ url('') }}/{{ @$banner->setting->top_banner  }}" alt="" class="img-responsive"></a>
                                 </div>
                             </div>
                         </div>

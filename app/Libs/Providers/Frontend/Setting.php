@@ -46,6 +46,16 @@ class Setting {
 		return $data;
 	}
 
+    public function getBanner() {
+        $data = $this->settingModel->where('key', "BANNER")
+            ->first();
+
+        if (!empty($data->setting)) {
+            $data->setting = json_decode($data->setting);
+        }
+        return $data;
+    }
+
 }
 
 
