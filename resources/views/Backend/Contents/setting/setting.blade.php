@@ -16,6 +16,9 @@
 			                <li>
 			                    <a data-toggle="tab" href="#tab-3">{!! trans('backend.setting.seo_default') !!}</a>
 			                </li>
+							<li>
+								<a data-toggle="tab" href="#tab-4">{!! trans('backend.setting.banner') !!}</a>
+							</li>
 			            </ul>
 			            <div class="tab-content">
 			                <div id="tab-1" class="tab-pane fade active in">
@@ -181,6 +184,52 @@
 	        		                </div>
 	        		            </div>
 	        		        </div>
+
+							<div id="tab-4" class="tab-pane fade">
+								<div class="row">
+									<div class="col-sm-12">
+										<div class="form-group">
+											<div class="input-group">
+											   <span class="input-group-btn">
+													<a data-input="image_banner" data-preview="banner_top_preview" class="lfm btn btn-primary">
+													   	<i class="fa fa-picture-o"></i>
+														{!! trans('setting.banner_top') !!}
+													</a>
+												</span>
+												<input id="image_banner" class="form-control" type="text" name="main_image" ng-model="data.banner.top_banner"  style="display: none">
+											</div>
+											<img id="banner_top_preview"  ng-src="{{ url('') }}/@{{ data.banner.top_banner }}" style="margin-top:15px; margin-bottom: 5px; height:100px; max-width:180px">
+										</div>
+
+										<div class="col-sm-12">
+											<button type="button" ng-click="actions.saveBanner()" class="btn btn-primary btn-block">
+												{!! trans('backend.actions.submit') !!}
+											</button>
+										</div>
+									</div>
+
+									<div class="col-sm-12">
+										<div class="form-group">
+											<div class="input-group">
+											   	<span class="input-group-btn">
+													<a data-input="image_banner_right" data-preview="banner_right_preview" class="lfm btn btn-primary">
+													   <i class="fa fa-picture-o"></i>
+														{!! trans('setting.banner_top') !!}
+													</a>
+												</span>
+												<input id="image_banner_right" class="form-control" type="text" name="main_image" ng-model="data.banner_home.right_banner"  style="display: none">
+											</div>
+											<img id="banner_right_preview"  ng-src="{{ url('') }}/@{{ data.banner_home.right_banner }}" style="margin-top:15px; margin-bottom: 5px; height:100px; max-width:180px">
+										</div>
+
+										<div class="col-sm-12">
+											<button type="button" ng-click="actions.saveBanner()" class="btn btn-primary btn-block">
+												{!! trans('backend.actions.submit') !!}
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
 			            </div>
 			        </div>
 		        </div>

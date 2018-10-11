@@ -120,4 +120,11 @@ Route::group(['prefix' => 'rest/admin', 'namespace'=> 'Backend'], function() {
 
     Route::get('widget-modal/{view}', 'WidgetController@modal');
 
+    Route::post('add-widget-to-sideBar', 'WidgetController@store');
+    Route::post('update-widget-item/{id}', 'WidgetController@update');
+
+    Route::get('list-widget-item', 'WidgetController@listWidget');
+
+    Route::post('sort-widget-item', 'WidgetController@sortWidget');
+
 });

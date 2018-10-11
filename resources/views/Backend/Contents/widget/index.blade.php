@@ -42,31 +42,29 @@
                             </div>
                             <div class="panel-body">
                                 <div >
-                                    <div ui-sortable="data.sortableOptions" ng-model="data.widgetCenters">
-                                        <div class="list-group" ng-repeat="(key, item) in data.widgetCenters">
-                                            <div class="widget" data-id="@{{ item.data.id }}" data-name="@{{ item.data.name }}" data-category="" data-key="@{{ item.key }}" >
-                                                <span class="list-group-item widget-item">@{{ item.key }}</span>
-                                                <a data-toggle="collapse" href="#widget-center-item-@{{ key }}" class="widget-icon" href=""><i class="fa fa-lg fa-sort-down"></i></a> 
+                                    <div ui-sortable="data.sortableOptionsCenter" ng-model="data.widgetCenters">
+                                        <div ng-repeat="(key, itemWidget) in data.widgetCenters">
+
+                                            <div class="list-group" ng-if="itemWidget.key === config.post">
+                                                <post-widget widget-center-data="itemWidget"> </post-widget>
                                             </div>
-                                            <div class="panel-collapse collapse widget-border" id="widget-center-item-@{{ key }}">
-                                                <div class="panel-body"> 
-                                                    <div class="form-group">
-                                                        <label class="control-label">{{ trans("backend.menu.name_display") }}: </label>
-                                                        <input type="text" name="name_display" class="form-control">
-                                                    </div>
-                                                    <div>
-                                                        <p><span> {{ trans('backend.menu.link') }}: </span>
-                                                            <a href="" class="text-info">
-                                                                title
-                                                            </a>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                                <div class="panel-footer text-right">
-                                                    <button class="btn btn-sm btn-danger delete-menu-detail" type="button">{{
-                                                    trans("backend.actions.delete") }} </button>
-                                                </div>
+
+                                            <div class="list-group" ng-if="itemWidget.key === config.category">
+                                                <category-widget widget-center-data="itemWidget" list-categories="data.listCategories"> </category-widget>
                                             </div>
+
+                                            <div class="list-group" ng-if="itemWidget.key === config.banner">
+                                                <banner-widget widget-center-data="itemWidget"> </banner-widget>
+                                            </div>
+
+                                            <div class="list-group" ng-if="itemWidget.key === config.tag">
+                                                <tag-widget widget-center-data="itemWidget"> </tag-widget>
+                                            </div>
+
+                                            <div class="list-group" ng-if="itemWidget.key === config.video">
+                                                <video-widget widget-center-data="itemWidget"> </video-widget>
+                                            </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -74,12 +72,37 @@
                         </div>
                     </div>
                     <div class="col-sm-6">
-                        <div class="panel">
+                        <div class="panel" ng-drop="true" class="wap-widget" ng-drop-success="actions.dropCompleteWidgetFooters($data, $event)" ng-drag-stop="actions.startWidget($data, $event)"  ng-drag-end="actions.dropCompleteWidgetFooters($data, $event)">
                             <div class="panel-heading">
                                 <h3 class="panel-title">{{ trans('backend.widget.footer') }}</h3>
                             </div>
                             <div class="panel-body">
-                                <div ng-drop="true" class="wap-widget">
+                                <div >
+                                    <div ui-sortable="data.sortableOptionsFooter" ng-model="data.widgetFooters">
+                                        <div ng-repeat="(key, itemWidget) in data.widgetFooters">
+
+                                            <div class="list-group" ng-if="itemWidget.key === config.post">
+                                                <post-widget widget-center-data="itemWidget"> </post-widget>
+                                            </div>
+
+                                            <div class="list-group" ng-if="itemWidget.key === config.category">
+                                                <category-widget widget-center-data="itemWidget" list-categories="data.listCategories"> </category-widget>
+                                            </div>
+
+                                            <div class="list-group" ng-if="itemWidget.key === config.banner">
+                                                <banner-widget widget-center-data="itemWidget"> </banner-widget>
+                                            </div>
+
+                                            <div class="list-group" ng-if="itemWidget.key === config.tag">
+                                                <tag-widget widget-center-data="itemWidget"> </tag-widget>
+                                            </div>
+
+                                            <div class="list-group" ng-if="itemWidget.key === config.video">
+                                                <video-widget widget-center-data="itemWidget"> </video-widget>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -98,6 +121,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-sm-6">
                         <div class="panel">
                             <div class="panel-heading">
@@ -118,6 +142,9 @@
 @section ('myJs') 
 	<script src="{{ url('angularJs/uses/ctrls/widgetCtrl.js') }}"></script>
 	<script src="{{ url('angularJs/uses/factory/services/widgetSerivce.js') }}"></script>
+    <script src="{{ url('angularJs/uses/directives/modals/widget.js') }}"></script>
+
+    <script src="{{ url('angularJs/uses/factory/services/categoryService.js') }}"></script>
 @endsection
 
 @section ('myCss')

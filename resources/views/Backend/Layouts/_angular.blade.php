@@ -17,13 +17,10 @@
 <script src="{{ url('Backend/js/ngApp.js') }}"></script>
 
 <!-- driectives -->
-<script src="{{ url('angularJs/uses/directives') }}/myCkeditor.js"></script>
-<script src="{{ url('angularJs/uses/directives') }}/myDatepicker.js"></script>
 <script src="{{ url('angularJs/uses/directives') }}/ngdom.js"></script>
 <script src="{{ url('angularJs/uses/directives') }}/ngEnter.js"></script>
 <script src="{{ url('angularJs/uses/directives') }}/slugText.js"></script>
-<script src="{{ url('angularJs/uses/directives') }}/myRenderImage.js"></script>
-<script src="{{ url('angularJs/uses/directives') }}/myLFM.js"></script>
+<script src="{{ url('angularJs/uses/directives') }}/myDirective.js"></script>
 
 <!-- services -->
 <script src="{{ url('angularJs/uses/factory') }}/apply.js"></script>

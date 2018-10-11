@@ -50,7 +50,3 @@ class CountView {
         Session()->put('viewed_'.$cate, $viewed);
     }
 }
-
-
-
-    
