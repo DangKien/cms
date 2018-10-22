@@ -32,9 +32,8 @@ ngApp.controller('settingCtrl',function($scope, $myNotify, $myBootbox, $myLoader
                     if (value.key == 'OUR_SERVICE') {
                         $scope.data.service = value.setting
                     }
-                    if (value.key == 'REVIEW_HOME') {
-                        $scope.data.review = value.setting
-                        console.log($scope.data.review.home_image);
+                    if (value.key == 'BANNER') {
+                        $scope.data.banner = value.setting;
                     }
                     if (value.key == 'META_SEO') {
                         $scope.data.meta = value.setting
@@ -72,69 +71,15 @@ ngApp.controller('settingCtrl',function($scope, $myNotify, $myBootbox, $myLoader
             });
         },
 
-        changeBannerHome: function () {
-            let params = {
-                'setting': JSON.stringify(
-                    {'url_image': $scope.data.banner_home.url_image || '',
-                        'intro': $scope.data.banner_home.intro || '',
-                        'title': $scope.data.banner_home.title || '' }),
-                'key' : 'BANNER_HOME'
-            }
-            $settingService.action.insertSetting(params).then(function (resp){
-                if (resp) {
-                    $myNotify.success('Success')
-                }
-            }, function (error) {
-                $myNotify.error('Error')
-            });
-        },
-
-        changeImageReview: function () {
-            var arrayVal = [];
-
-            $('.value-image').each(function () {
-                if ($(this).val() != "") {
-                    arrayVal.push($(this).val());
-                }
-            })
-            let params = {
-                'setting': JSON.stringify(
-                    {'home_image': arrayVal || ''}),
-                'key' : 'REVIEW_HOME'
-            }
-            $settingService.action.insertSetting(params).then(function (resp){
-                if (resp) {
-                    $myNotify.success('Success')
-                }
-            }, function (error) {
-                $myNotify.error('Error')
-            });
-        },
-
-        changeImageAdvantage: function () {
-            let params = {
-                'setting': JSON.stringify(
-                    {
-                        'home_image': $scope.data.advantage.home_image || '',
-                        'pp_image' : $scope.data.advantage.pp_image || ''
-                    }),
-                'key' : 'ADVANTAGE_HOME'
-            }
-            $settingService.action.insertSetting(params).then(function (resp){
-                if (resp) {
-                    $myNotify.success('Success')
-                }
-            }, function (error) {
-                $myNotify.error('Error')
-            });
-        },
 
         saveBanner: function () {
             let params = {
                 'setting': JSON.stringify(
                     {
                         'right_banner': $scope.data.banner.right_banner || '',
-                        'top_banner' : $scope.data.banner.top_banner || ''
+                        'top_banner' : $scope.data.banner.top_banner || '',
+                        'top_banner_url' : $scope.data.banner.top_banner_url || '',
+                        'right_banner_url': $scope.data.banner.right_banner_url || ''
                     }),
                 'key' : 'BANNER'
             }
