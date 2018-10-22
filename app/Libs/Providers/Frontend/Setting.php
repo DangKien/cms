@@ -55,6 +55,9 @@ class Setting {
         }
         return $data;
     }
+    public function getSeo() {
+
+    }
 
 }
 

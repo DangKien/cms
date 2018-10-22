@@ -109,7 +109,7 @@ class Home {
 		$data = $this->magazineModel::orderBy('sort_by' , 'asc')->paginate(8);
 		return $data;
 	}
-	
+
 
 }
 

@@ -189,12 +189,11 @@ class NewController extends Controller
             $newModel = $this->newModel->findOrFail($id);
             if ($newModel->status == StatusConfig::CONST_AVAILABLE) {
                 return response()->json(['status' => false], 422);
-            } 
-            $newModel->remove = 1;
+            }
+            $newModel->delete();
+            $newModel->deleteTranslations();
+            $newModel->categories()->detach();
             $newModel->save();
-            // $newModel->delete();
-            // $newModel->deleteTranslations();
-            // $newModel->categories()->detach();
             DB::commit();
             return response()->json(['status' => true], 200);
         } catch (Exception $e) {

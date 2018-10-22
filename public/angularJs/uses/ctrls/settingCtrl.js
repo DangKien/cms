@@ -36,8 +36,8 @@ ngApp.controller('settingCtrl',function($scope, $myNotify, $myBootbox, $myLoader
                         $scope.data.review = value.setting
                         console.log($scope.data.review.home_image);
                     }
-                    if (value.key == 'ADVANTAGE_HOME') {
-                        $scope.data.advantage = value.setting
+                    if (value.key == 'META_SEO') {
+                        $scope.data.meta = value.setting
                     }
                 });
             }, function (error) {
@@ -167,7 +167,25 @@ ngApp.controller('settingCtrl',function($scope, $myNotify, $myBootbox, $myLoader
                 ),
                 'key' : 'CONTACT'
             }
-            console.log(params)
+            $settingService.action.insertSetting(params).then(function (resp){
+                if (resp) {
+                    $myNotify.success('Success')
+                }
+            }, function (error) {
+                $myNotify.error('Error')
+            });
+        },
+
+        saveMeta: function () {
+            let params = {
+                'setting': JSON.stringify(
+                    {
+                        'title': $scope.data.meta.title || '',
+                        'keyword': $scope.data.meta.keyword || '',
+                        'description': $scope.data.meta.description || '',
+                    }),
+                'key' : 'META_SEO'
+            }
             $settingService.action.insertSetting(params).then(function (resp){
                 if (resp) {
                     $myNotify.success('Success')
