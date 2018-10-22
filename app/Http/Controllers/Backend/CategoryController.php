@@ -113,7 +113,7 @@ class CategoryController extends Controller
     public function edit($id)
     {
         $category = $this->categoryModel->findOrFail($id);
-        $categories = app('Category')->listCategory('vi');
+        $categories = app('Category')->listCategory('cn');
   
         return view('Backend.Contents.category.add', array('category' => $category, 
                                                         'categories' => $categories));
