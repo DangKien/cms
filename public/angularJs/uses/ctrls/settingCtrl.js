@@ -104,9 +104,13 @@ ngApp.controller('settingCtrl',function($scope, $myNotify, $myBootbox, $myLoader
                         'fb': $scope.data.contact.fb || '',
                         'youtube'  : $scope.data.contact.youtube || '',
                         'instagram' : $scope.data.contact.instagram || '',
+<<<<<<< HEAD
                         'linkin' : $scope.data.contact.linkin || '',
 						'whatapp' : $scope.data.contact.whatapp || '',
                         'wechat' : $scope.data.contact.wechat || '',
+=======
+                        'zalo' : $scope.data.contact.zalo || '',
+>>>>>>> bcb538fb98ef3a05284e1cbc978fa3f9d722c37c
                         'google_map' : $scope.data.contact.google_map || '',
                         'google_analytic': $scope.data.contact.google_analytic || '',
                         'fb_pixel' : $scope.data.contact.fb_pixel

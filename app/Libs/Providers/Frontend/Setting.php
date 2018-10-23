@@ -37,7 +37,11 @@ class Setting {
 	}
 
 	public function getMeta() {
+<<<<<<< HEAD
 		$data = $this->settingModel->where('key', "META_SEO")
+=======
+		$data = $this->settingModel->where('key', "META")
+>>>>>>> bcb538fb98ef3a05284e1cbc978fa3f9d722c37c
 							 ->first();
 
 		if (!empty($data->setting)) {

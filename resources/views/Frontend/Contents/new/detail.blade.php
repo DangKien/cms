@@ -84,6 +84,7 @@
                                                         	@php
 																$tags =  explode(",", @$new->tag);
                                                         	@endphp
+<<<<<<< HEAD
                                                            	@if (!empty($tags))
 																@foreach ($tags as $tag)
 																	@if (!empty($tag))
@@ -91,6 +92,11 @@
 																	@endif
                                                            		@endforeach 
 															@endif
+=======
+                                                           	@foreach ($tags as $tag)
+																<li><a href="{{ route('search', ['search' => $tag]) }}">{{ @$tag }}</a></li>
+                                                           	@endforeach 
+>>>>>>> bcb538fb98ef3a05284e1cbc978fa3f9d722c37c
                                                         </ul>
                                                     </div>
 
