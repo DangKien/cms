@@ -34,8 +34,23 @@ class NewController extends Controller
     }
 
     public function search(Request $request) {
+	    if ($request->has('year') && $request->has('month')) {
+            $data = $this->newModel->filterDateMonth($request->year, $request->month)
+                ->buildCond()
+                ->with(['user_creates' => function ($q) {
+                    $q->select('users.id', 'name');
+                }])
+                ->with(['categories' => function ($q) {
+                    $q->select('categories.id', 'name')
+                        ->join('categories_translation as t', 't.category_id', '=', 'categories.id')
+                        ->where('locale', App::getLocale())
+                        ->orderBy('depth','asc')
+                        ->get();
+                }])
+                ->paginate(8);
+            return view('Frontend.Contents.search.search', array('data' => $data, 'keyword' => $request->search));
+        }
         $data = $this->newModel->filterFreeText($request->search)
-                                // ->filterOnlyTag($request->tag)
                                 ->buildCond()
                                 ->with(['user_creates' => function ($q) {
                                     $q->select('users.id', 'name');
@@ -47,7 +62,6 @@ class NewController extends Controller
                                     ->orderBy('depth','asc')
                                     ->get();
                                 }])
-                                
                                 ->paginate(8);
 
         return view('Frontend.Contents.search.search', array('data' => $data, 'keyword' => $request->search));

@@ -63,4 +63,12 @@ class NewModel extends MyModel
         }
         return $this;
     }
+
+    public function filterDateMonth ($year, $month) {
+        if (!empty($year) &&  !empty($month)) {
+            $this->setFunctionCond('whereYear',  '=' , $year);
+            $this->setFunctionCond('whereMonth',  '=' , $month);
+        }
+        return $this;
+    }
 }
