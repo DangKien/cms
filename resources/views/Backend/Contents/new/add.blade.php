@@ -79,7 +79,7 @@
 								                                </label>
 
 								                                <input  type="text" name="title[{{ @$languageTab->id }}]" class="form-control" 
-								                                value="{{ @$recordNew->title ? $recordNew->title : old('title[@$languageTab->id]') }}">
+								                                value="{{ @$recordNew->title ? $recordNew->title : old('title.'.@$languageTab->id) }}">
 
 								                                @if ($errors->has('title.'.@$languageTab->id))
 									                            	<p class="text-left text-danger">{{ $errors->first('title.'.@$languageTab->id) }}</p>
