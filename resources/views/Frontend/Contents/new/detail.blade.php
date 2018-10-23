@@ -84,7 +84,6 @@
                                                         	@php
 																$tags =  explode(",", @$new->tag);
                                                         	@endphp
-<<<<<<< HEAD
                                                            	@if (!empty($tags))
 																@foreach ($tags as $tag)
 																	@if (!empty($tag))
@@ -92,59 +91,8 @@
 																	@endif
                                                            		@endforeach 
 															@endif
-=======
-                                                           	@foreach ($tags as $tag)
-																<li><a href="{{ route('search', ['search' => $tag]) }}">{{ @$tag }}</a></li>
-                                                           	@endforeach 
->>>>>>> bcb538fb98ef3a05284e1cbc978fa3f9d722c37c
                                                         </ul>
                                                     </div>
-
-                                                    <!-- <div class="uni-post-pagination">
-                                                        <div class="col-md-6 col-sm-6 col-xs-6 clear-padding">
-                                                            <div class="uni-post-pagination-left">
-                                                                <a href="#">PREVIOUS POST</a>
-                                                                <div class="uni-pagination-latest">
-                                                                    <div class="thumbnail-img">
-                                                                        <a href="03_01_02_right_sidebar.html">
-                                                                            <img src="image/03_02_01_image_post/pagination/img.jpg" alt="" title="" class="img-responsive">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="rel-post-text">
-                                                                        <h5 class="entry-title">
-                                                                            <a href="03_01_02_right_sidebar.html">Pellentesque habitant morbi tristi senectus et netus</a>
-                                                                        </h5>
-                                                                        <div class="entry-meta">
-                                                                            <span class="entry-date"><i class="fa fa-calendar" aria-hidden="true"></i>June 21, 2017</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="clearfix"></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6 col-sm-6 col-xs-6 clear-padding">
-                                                            <div class="uni-post-pagination-right">
-                                                                <a href="#">NEXT POST</a>
-                                                                <div class="uni-pagination-latest">
-                                                                    <div class="thumbnail-img">
-                                                                        <a href="03_01_02_right_sidebar.html">
-                                                                            <img src="image/03_02_01_image_post/pagination/img-1.jpg" alt="" title="" class="img-responsive">
-                                                                        </a>
-                                                                    </div>
-                                                                    <div class="rel-post-text">
-                                                                        <h5 class="entry-title">
-                                                                            <a href="03_01_02_right_sidebar.html" title="Futurethon – Explore the future">Pellentesque habitant morbi tristi senectus et netus</a>
-                                                                        </h5>
-                                                                        <div class="entry-meta">
-                                                                            <span class="entry-date"><i class="fa fa-calendar" aria-hidden="true"></i>June 21, 2017</span>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="clearfix"></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="clearfix"></div>
-                                                    </div> -->
                                                 </div><!-- .content-inner -->
                                             </article><!-- #post-## -->
                                         </div><!-- .page-conten t-->

@@ -185,11 +185,7 @@
 
 @section ('metaData')
 	@php
-<<<<<<< HEAD
 		$arrMeta['title'] = @$seo->setting->title;
-=======
-		$arrMeta['title'] = @$seo->setting->meta_title;
->>>>>>> bcb538fb98ef3a05284e1cbc978fa3f9d722c37c
 	@endphp
 	@includeif ('Frontend.Layouts._meta', @$arrMeta ?? array() )
 @endsection

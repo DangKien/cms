@@ -98,7 +98,6 @@
 												</div>
 												<div class="col-sm-12">
 													<div class="form-group">
-<<<<<<< HEAD
 														<label class="control-label">{!! trans('backend.setting.whatapp') !!}</label>
 														<input type="text" class="form-control" ng-model="data.contact.whatapp"
 															   required>
@@ -114,12 +113,7 @@
 												<div class="col-sm-12">
 													<div class="form-group">
 														<label class="control-label">{!! trans('backend.setting.linkin') !!}</label>
-														<input type="text" class="form-control" ng-model="data.contact.linkin"
-=======
-														<label class="control-label">{!! trans('backend.setting.zalo') !!}</label>
-														<input type="text" class="form-control" ng-model="data.contact.zalo"
->>>>>>> bcb538fb98ef3a05284e1cbc978fa3f9d722c37c
-															   required>
+														<input type="text" class="form-control" ng-model="data.contact.linkin" required>
 													</div>
 												</div>
 												<div class="col-sm-12">

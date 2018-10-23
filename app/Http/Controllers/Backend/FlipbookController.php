@@ -216,12 +216,8 @@ class FlipbookController extends Controller
         $this->validate($request, array(
             'title'       => 'required|between:1,500',
             // 'description' => 'between:0,1000',
-            'url_image'   => 'required',
-<<<<<<< HEAD
             'magazine_url' => 'required',
-=======
             'url_magazine'   => 'required',
->>>>>>> bcb538fb98ef3a05284e1cbc978fa3f9d722c37c
             'status'      => 'required'
         ), array() );
     }
