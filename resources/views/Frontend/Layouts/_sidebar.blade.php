@@ -54,7 +54,7 @@
                                 <li>
                                     <div class="vk-item-ep">
                                         <div>
-                                            <a href="{{ route('sreach', [ 'year' => $item->year, 'month' => $item->month ] ) }}">
+                                            <a href="{{ route('search', [ 'year' => $item->year, 'month' => $item->month ] ) }}">
                                                 <i class="fa fa-angle-double-right"></i>&nbsp;&nbsp;{{ @$item->year.trans('frontend.year').@$item->month.trans('frontend.month') }} 
                                             </a>
                                         </div>
