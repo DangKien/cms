@@ -1,6 +1,7 @@
 @php
     $contact = app('Setting')->getContact();
     $news    = app('Home')->getHotNew(3);
+    $magazines = app('Home')->getMagazine(3); 
 @endphp
 
 <footer>
@@ -13,7 +14,7 @@
                             <div class="footer-main-content-element col-sm-4">
                                 <aside class="widget">
                                     <div class="widget-title">
-                                        <a href="index.html"><img src="{{ url('Frontend') }}/image/logo_2.png" alt="" class="img-responsive"></a>
+                                        <a href="{{ route('home') }}"><img src="{{ url('Frontend') }}/image/logo_2.png" alt="" class="img-responsive"></a>
                                     </div>
                                     <div class="widget-content">
                                         <div class="vk-footer-1">
@@ -36,7 +37,9 @@
                                                         <li><a href="{{ @$contact->setting->google_plus }}"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
                                                         <li><a href="{{ @$contact->setting->instagram }}"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                                                         <li><a href="{{ @$contact->setting->youtube }}"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-                                                        <li><a href="{{ @$contact->setting->fb }}"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                                        <li><a href="{{ @$contact->setting->linkin }}"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+														<li><a href="{{ @$contact->setting->wechat }}"><i class="fa fa-weixin" aria-hidden="true"></i></a></li>
+                                                        <li><a href="{{ @$contact->setting->whatapp }}"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -46,7 +49,7 @@
                             </div>
                             <div class="footer-main-content-element col-sm-4">
                                 <aside class="widget">
-                                    <h3 class="widget-title"> Latest News</h3>
+                                    <h3 class="widget-title"> {{ trans('frontend.lasternew') }}</h3>
                                     <div class="widget-content">
                                         <div class="vk-footer-2">
                                             <div class="vk-footer-2-content">
@@ -77,27 +80,19 @@
                             </div>
                             <div class="footer-main-content-element col-sm-4">
                                 <aside class="widget">
-                                    <h3 class="widget-title">Twitter Feed</h3>
+                                    <h3 class="widget-title">{{ trans('frontend.magazine_new') }}</h3>
                                     <div class="widget-content">
                                         <div class="vk-footer-3">
                                             <div class="vk-footer-3-content">
+                                                @foreach ($magazines as $magazine)
                                                 <p>
-                                                    <span><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> MaxNews</a></span>
-                                                    Your body is like a race car!! You need to fuel it right to keep performing at your best!
+                                                    <span>
+                                                        <a href="{{ route('magazine.detail', [$magazine->id, $magazine->slug]) }}">
+                                                         {{ $magazine->title }}</a>
+                                                    </span>
                                                 </p>
-                                                <div class="time">about 5 days ago</div>
-
-                                                <p>
-                                                    <span><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> MaxNews</a></span>
-                                                    Your body is like a race car!! You need to fuel it right to keep performing at your best!
-                                                </p>
-                                                <div class="time">about 5 days ago</div>
-
-                                                <p>
-                                                    <span><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> MaxNews</a></span>
-                                                    Your body is like a race car!! You need to fuel it right to keep performing at your best!
-                                                </p>
-                                                <div class="time">about 5 days ago</div>
+                                                <div class="time">Created_at: {{ Carbon\Carbon::parse( @$magazine->created_at)->format('d F Y') }}</div>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>

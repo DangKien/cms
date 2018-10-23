@@ -19,11 +19,11 @@
     }
 
     function utf8Url($string){        
-        $string = strtolower($string);
-        $string = str_replace( "ß", "ss", $string);
-        $string = str_replace( "%", "", $string);
-        $string = preg_replace("/[^_a-zA-Z0-9 -]/", "",$string);
-        $string = str_replace(array('%20', ' '), '-', $string);
+        // $string = strtolower($string);
+        // $string = str_replace( "ß", "ss", $string);
+        // $string = str_replace( "%", "", $string);
+        // $string = preg_replace("/[^_a-zA-Z0-9 -]/", "",$string);
+        // $string = str_replace(array('%20', ' '), '-', $string);
         $string = str_replace("----","-",$string);
         $string = str_replace("---","-",$string);
         $string = str_replace("--","-",$string);

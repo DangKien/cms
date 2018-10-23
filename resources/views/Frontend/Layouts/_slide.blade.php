@@ -15,7 +15,7 @@
 			                        <span class="border-ribbon"><img src="{{ url('Frontend') }}/image/homepage1/icon/fire.png" alt="" class="img-responsive"></span>
 			                    </div>
 			                    <ul>
-			                        <li>{{  @$priortizeNew->view }} views</li>
+			                        <li>{{  @$priortizeNew->view }} {{ trans('frontend.view') }}</li>
 			                    </ul>
 			                    <div class="clearfix"></div>
 			                </div>

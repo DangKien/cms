@@ -6717,24 +6717,24 @@ hr {
           -webkit-transition: all 0.4s;
           -o-transition: all 0.4s;
           transition: all 0.4s; }
-    .uni-image-post-body .entry-share .tw {
+    .uni-image-post-body .entry-share .wc {
       position: relative;
       display: inline-block; }
-      .uni-image-post-body .entry-share .tw a {
+      .uni-image-post-body .entry-share .wc a {
         display: block;
         width: 30px;
         height: 30px;
         border-radius: 3px;
-        background-color: #19c3f4;
-        border: 1px solid #19c3f4;
+        background-color: rgb(0, 200, 15);
+        border: 1px solid rgb(0, 200, 15);
         -webkit-transition: all 0.4s;
         -o-transition: all 0.4s;
         transition: all 0.4s; }
-        .uni-image-post-body .entry-share .tw a:hover {
+        .uni-image-post-body .entry-share .wc a:hover {
           background-color: transparent; }
-          .uni-image-post-body .entry-share .tw a:hover i {
-            color: #19c3f4; }
-        .uni-image-post-body .entry-share .tw a i {
+          .uni-image-post-body .entry-share .wc a:hover i {
+            color: rgb(0, 200, 15); }
+        .uni-image-post-body .entry-share .wc a i {
           position: absolute;
           left: 50%;
           top: 50%;

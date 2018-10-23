@@ -33,6 +33,7 @@ class CategoryController extends Controller
     	$slice = array_slice($listCategory->news->toArray(), $paginate * ($page - 1), $paginate);
 
     	$listNews = new \Illuminate\Pagination\LengthAwarePaginator($slice, count($listCategory->news), $paginate);
-    	return view('Frontend.Contents.category.index', array('listCategory' => $listNews));
+    	
+    	return view('Frontend.Contents.category.index', array('listCategory' => $listNews, 'category' => $listCategory));
     }
 }

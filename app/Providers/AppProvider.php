@@ -29,6 +29,8 @@ class AppProvider extends ServiceProvider
         $this->app->singleton('NewsBackend', function ($app) {
             return new \App\Libs\Providers\News();
         });
+
+       
     }
 
     /**

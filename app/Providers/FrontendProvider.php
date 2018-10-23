@@ -33,6 +33,10 @@ class FrontendProvider extends ServiceProvider
             return new \App\Libs\Providers\Frontend\Tag();
         });
 
+        $this->app->singleton('CountView', function ($app){
+            return new \App\Libs\Providers\Frontend\CountView();
+        });
+
     }
 
     /**

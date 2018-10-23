@@ -15,6 +15,9 @@ class NewController extends Controller
 		$this->newModel = $newModel;
 	}
     public function detail ($id, $slug, Request $request) {
+
+        app('CountView')->upView($this->newModel, 'view', $id, 'news');
+
     	$new  = $this->newModel->with(['user_creates' => function ($q) {
     								$q->select('users.id', 'name');
     							}])
@@ -26,7 +29,28 @@ class NewController extends Controller
 						            ->get();
     							}])
                                ->findOrFail($id);
-        return view('Frontend.Contents.new.detail', array('new'=>$new));
 
+        return view('Frontend.Contents.new.detail', array('new' => $new));
     }
+
+    public function search(Request $request) {
+        $data = $this->newModel->filterFreeText($request->search)
+                                // ->filterOnlyTag($request->tag)
+                                ->buildCond()
+                                ->with(['user_creates' => function ($q) {
+                                    $q->select('users.id', 'name');
+                                }])
+                                ->with(['categories' => function ($q) {
+                                    $q->select('categories.id', 'name')
+                                    ->join('categories_translation as t', 't.category_id', '=', 'categories.id')
+                                    ->where('locale', App::getLocale())
+                                    ->orderBy('depth','asc')
+                                    ->get();
+                                }])
+                                
+                                ->paginate(8);
+
+        return view('Frontend.Contents.search.search', array('data' => $data, 'keyword' => $request->search));
+    }
+
 }

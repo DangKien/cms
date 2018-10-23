@@ -58,7 +58,7 @@
 				                        </div>
 				                    </div>
 			            		</div>
-			                    <div class="row">
+			                    <!-- <div class="row">
     			                    <div class="form-group col-md-6">
     			                        <label class="col-sm-4" for="select-menu">{!! trans("backend.menu.language") !!}: </label>
     				                    <div class="col-sm-8">
@@ -73,7 +73,7 @@
     	                                    </select>
     			                        </div>
     			                    </div>
-			                    </div>
+			                    </div> -->
 		            		</form>
 			            </div>
 			        </div>
@@ -226,9 +226,9 @@
 	
 	<script>
 		var data_menu_id  = '{{ request()->get("menu_id") }}';
-		var type_category = '{{ trans("backend.menu.controls.category") }}';
-		var type_post     = '{{ trans("backend.menu.controls.post") }}';
-		var type_url      = '{{ trans("backend.menu.controls.url") }}';
+		var type_category = 'Category';
+		var type_post     = 'Post';
+		var type_url      = 'Url';
 
 		$(document).ready(function () {
 			$(".nano").nanoScroller();

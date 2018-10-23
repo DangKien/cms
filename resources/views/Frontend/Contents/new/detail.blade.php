@@ -24,22 +24,23 @@
                                                         <div class="entry-meta">
                                                             <span class="author vcard"><a href="" rel="author"><i class="fa fa-user" aria-hidden="true"></i> {{ @$new->user_creates->name }}</a></span>
                                                             <span class="entry-date"><i class="fa fa-calendar" aria-hidden="true"></i> {{ Carbon\Carbon::parse( @$newModel['created_at'])->format('d F Y') }}</span>
-                                                            <span class="meta-views"><i class="fa fa-eye" aria-hidden="true"></i> {{ @$new->view }} views</span>
+                                                            <span class="meta-views"><i class="fa fa-eye" aria-hidden="true"></i> {{ @$new->view }} {{ trans('frontend.view') }}</span>
                                                         </div>
                                                     </div>
-                                                    <div class="entry-top">
-                                                        <div class="post-formats-wrapper">
-                                                            <a class="post-image" href="">
-                                                                <img src="image/03_02_01_image_post/img1.jpg" class="attachment-full size-full wp-post-image img-responsive" alt="" >
-                                                            </a>
-                                                        </div>
-                                                    </div><!-- .entry-top -->
                                                     <div class="entry-share">
-                                                        <span class="title">Share</span>
-                                                        <span class="fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></span>
-                                                        <span class="tw"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></span>
-                                                        <span class="gp"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></span>
-                                                        <span class="pt"><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></span>
+                                                        <span class="title">{{ trans('frontend.share') }}</span>
+                                                        <span class="fb">
+                                                            <div class="fb-share-button" data-href="{{ url()->full() }}" data-layout="button" data-size="small" data-mobile-iframe="true">
+                                                                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ url()->full() }}%2F&amp;src=sdkpreparse" onclick="return !window.open(this.href, 'Facebook', 'width=640,height=580')">
+                                                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                                                </a>
+                                                            </div>
+                                                        </span>
+                                                        <span class="wc"><a href="#"><i class="fa fa-wechat" aria-hidden="true"></i></a></span>
+                                                        <span class="gp">
+                                                            <a href="https://plus.google.com/share?url={{ url()->full() }}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+                                                            <i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                                        </span> 
                                                     </div>
                                                     <hr>
                                                     <div class="entry-content">
@@ -62,11 +63,19 @@
 
                                                     <hr>
                                                     <div class="entry-share">
-                                                        <span class="title">Share</span>
-                                                        <span class="fb"><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></span>
-                                                        <span class="tw"><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></span>
-                                                        <span class="gp"><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></span>
-                                                        <span class="pt"><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></span>
+                                                        <span class="title">{{ trans('frontend.share') }}</span>
+                                                        <span class="fb">
+                                                            <div class="fb-share-button" data-href="{{ url()->full() }}" data-layout="button" data-size="small" data-mobile-iframe="true">
+                                                                <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{ url()->full() }}%2F&amp;src=sdkpreparse" onclick="return !window.open(this.href, 'Facebook', 'width=640,height=580')">
+                                                                    <i class="fa fa-facebook" aria-hidden="true"></i>
+                                                                </a>
+                                                            </div>
+                                                        </span>
+                                                        <span class="wc"><a href="#"><i class="fa fa-wechat" aria-hidden="true"></i></a></span>
+                                                        <span class="gp">
+                                                            <a href="https://plus.google.com/share?url={{ url()->full() }}" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600');return false;">
+                                                            <i class="fa fa-google-plus" aria-hidden="true"></i></a>
+                                                        </span> 
                                                     </div>
                                                     <hr>
                                                     <div class="entry-tags">
@@ -75,13 +84,17 @@
                                                         	@php
 																$tags =  explode(",", @$new->tag);
                                                         	@endphp
-                                                           	@foreach ($tags as $tag)
-																<li><a href="#">{{ @$tag }}</a></li>
-                                                           	@endforeach 
+                                                           	@if (!empty($tags))
+																@foreach ($tags as $tag)
+																	@if (!empty($tag))
+																	<li><a href="{{ route('search', ['search' => $tag]) }}">{{ @$tag }}</a></li>
+																	@endif
+                                                           		@endforeach 
+															@endif
                                                         </ul>
                                                     </div>
 
-                                                    <div class="uni-post-pagination">
+                                                    <!-- <div class="uni-post-pagination">
                                                         <div class="col-md-6 col-sm-6 col-xs-6 clear-padding">
                                                             <div class="uni-post-pagination-left">
                                                                 <a href="#">PREVIOUS POST</a>
@@ -125,7 +138,7 @@
                                                             </div>
                                                         </div>
                                                         <div class="clearfix"></div>
-                                                    </div>
+                                                    </div> -->
                                                 </div><!-- .content-inner -->
                                             </article><!-- #post-## -->
                                         </div><!-- .page-conten t-->
@@ -142,6 +155,7 @@
         </div>
     </div>
 @endsection
+
 	
 @section ('myJs')
 	
@@ -151,3 +165,14 @@
 	
 @endsection
 
+@section ('metaData')
+    @php
+        $arrMeta['title']            = @$new->title; 
+        $arrMeta['meta_title']       = @$new->title; 
+        $arrMeta['meta_description'] = @$new->meta_description; 
+        $arrMeta['meta_keyword']     = @$new->meta_keyword; 
+        $arrMeta['meta_content']     = @$new->meta_content; 
+        $arrMeta['meta_image']       = @$new->url_image; 
+    @endphp
+    @includeif ('Frontend.Layouts._meta', @$arrMeta ?? array() )
+@endsection

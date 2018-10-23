@@ -1,4 +1,4 @@
-var ngApp = angular.module('ngApp', ['bw.paging', 'ngSanitize']);
+var ngApp = angular.module('ngApp', ['bw.paging', 'ngSanitize', 'ngDraggable', 'ui.sortable']);
 
 
 ngApp.filter('orderObjectBy', function() {

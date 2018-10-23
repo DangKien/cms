@@ -36,6 +36,29 @@ class Setting {
 		return $data;
 	}
 
+	public function getMeta() {
+		$data = $this->settingModel->where('key', "META_SEO")
+							 ->first();
+
+		if (!empty($data->setting)) {
+			$data->setting = json_decode($data->setting);
+		}
+		return $data;
+	}
+
+    public function getBanner() {
+        $data = $this->settingModel->where('key', "BANNER")
+            ->first();
+
+        if (!empty($data->setting)) {
+            $data->setting = json_decode($data->setting);
+        }
+        return $data;
+    }
+    public function getSeo() {
+
+    }
+
 }
 
 

@@ -1,8 +1,6 @@
 @extends('Frontend.Layouts.default')
-@section ('title', '')
+
 @section('content')
-	@php 
-	@endphp
 	<div id="main-content" class="site-main-content">
 	    <div id="home-main-content" class="site-home-main-content">
 			@includeif('Frontend.Layouts._slide')
@@ -18,7 +16,7 @@
 	                      	            <a href="">
 	                      	                <img src="{{ url('Frontend') }}/image/homepage1/icon/fashion.png" alt="" class="img-responsive img-gen">
 	                      	                <img src="{{ url('Frontend') }}/image/fas-red.png" alt="" class="img-responsive img-hover">
-	                      	                <span class="label-title">Fashion</span>
+	                      	                <span class="label-title">{{ @$category->name }}</span>
 	                      	            </a>
 	                      	        </div>
 	                      	    </div>
@@ -46,14 +44,14 @@
 		                      	                            </div>
 		                      	                            <div class="entry-meta">
 		                      	                                <span class="entry-date"><i class="fa fa-calendar" aria-hidden="true"></i> {{ Carbon\Carbon::parse( @$newModel['created_at'])->format('d F Y') }}</span>
-		                      	                                <span class="entry-views"><i class="fa fa-eye" aria-hidden="true"></i> {{ @$newModel['view'] }} views</span>
+		                      	                                <span class="entry-views"><i class="fa fa-eye" aria-hidden="true"></i> {{ @$newModel['view'] }} {{ trans('frontend.view') }}</span>
 		                      	                            </div>
 		                      	                            <div class="entry-summary">
 		                      	                                <p>{!! words(strip_tags(@$newModel['description']), 30,'...')  !!}</p>
 		                      	                            </div>
 		                      	                            <div class="readmore">
 		                      	                                <a href="{{ route('newDetail', 
-		                      	                            	[@$newModel['id'], @$newModel['slug']]) }}">Read more <i class="fa fa-angle-right" aria-hidden="true"></i></a>
+		                      	                            	[@$newModel['id'], @$newModel['slug']]) }}">{{ trans('frontend.readmore') }} <i class="fa fa-angle-right" aria-hidden="true"></i></a>
 		                      	                            </div>
 		                      	                        </div>
 		                      	                    </div>
@@ -93,5 +91,12 @@
 
 @section ('myCss')
 	
+@endsection
+
+@section ('metaData')
+	@php
+		$arrMeta['title'] = @$category->name
+	@endphp
+    @includeif ('Frontend.Layouts._meta', @$arrMeta ?? array() )
 @endsection
 

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Z軸空間設計 </title>
+        <title> 932搞生意雜誌 </title>
         <link rel="icon" href="{{ url('Frontend/img/logo_title1.png') }}" type="image/gif" sizes="32x32">
         <script>
             var SiteUrl = '{{url("/")}}';

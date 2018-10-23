@@ -88,7 +88,7 @@ class NewController extends Controller
             foreach ($languages as $key => $language) {
                 $this->newModel->translateOrNew($language->locale)->title            = $request->title[$language->id];
                 $this->newModel->translateOrNew($language->locale)->description      = $request->description[$language->id];
-                $this->newModel->translateOrNew($language->locale)->slug             = Str::slug($request->name[$language->id]);
+                $this->newModel->translateOrNew($language->locale)->slug             = slugTitle($request->name[$language->id]);
                 $this->newModel->translateOrNew($language->locale)->content          = $request->content[$language->id];
                 $this->newModel->translateOrNew($language->locale)->tag              = $request->tag[$language->id];
                 $this->newModel->translateOrNew($language->locale)->meta_title       = $request->meta_title[$language->id];
@@ -160,7 +160,7 @@ class NewController extends Controller
             foreach ($languages as $key => $language) {
                 $newModel->translateOrNew($language->locale)->title            = $request->title[$language->id];
                 $newModel->translateOrNew($language->locale)->description      = $request->description[$language->id];
-                $newModel->translateOrNew($language->locale)->slug             = Str::slug($request->title[$language->id]);
+                $newModel->translateOrNew($language->locale)->slug             = slugTitle($request->title[$language->id]);
                 $newModel->translateOrNew($language->locale)->content          = $request->content[$language->id];
                 $newModel->translateOrNew($language->locale)->tag              = $request->tag[$language->id];
                 $newModel->translateOrNew($language->locale)->meta_title       = $request->meta_title[$language->id];
@@ -189,12 +189,11 @@ class NewController extends Controller
             $newModel = $this->newModel->findOrFail($id);
             if ($newModel->status == StatusConfig::CONST_AVAILABLE) {
                 return response()->json(['status' => false], 422);
-            } 
-            $newModel->remove = 1;
+            }
+            $newModel->delete();
+            $newModel->deleteTranslations();
+            $newModel->categories()->detach();
             $newModel->save();
-            // $newModel->delete();
-            // $newModel->deleteTranslations();
-            // $newModel->categories()->detach();
             DB::commit();
             return response()->json(['status' => true], 200);
         } catch (Exception $e) {

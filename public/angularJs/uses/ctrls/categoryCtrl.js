@@ -28,7 +28,6 @@ ngApp.controller('categoryCtrl',function($scope, $myNotify, $myBootbox, $myLoade
 			}, function (error) {
 			})
 		},
-
 		findParent: function(array, depth) {
 			var strDepth  = "";
 			var arrDepth = depth.split("/");
